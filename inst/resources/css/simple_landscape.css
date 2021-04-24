@@ -1,8 +1,8 @@
 /* css vars */
 :root {
     --background: white;
-    --pagedjs-width: 210mm;
-    --pagedjs-height: 297mm;
+    --pagedjs-width: 297mm;
+    --pagedjs-height: 210mm;
     --pagedjs-margin-left: 10mm;
     --pagedjs-margin-right: 10mm;
     --pagedjs-margin-bottom: 10mm;
@@ -23,7 +23,7 @@
   }
   .pagedjs_pages {
       display: flex;
-      max-width: calc(var(--pagedjs-width) * 2);
+      max-width: var(--pagedjs-width);
       flex: 0;
       flex-wrap: wrap;
       margin: 0 auto;
@@ -37,18 +37,8 @@
   }
 }
 
-/* when a row can hold two pages, start first page on the right */
-@media screen and (min-width: 12.32in) {
-  .pagedjs_page {
-      margin: auto 0 var(--screen-pages-spacing) 0;
-  }
-  .pagedjs_first_page {
-      margin-left: var(--pagedjs-width);
-  }
-}
-
 @page {
-    size: A4;
+    size: A4 landscape;
 }
 
 

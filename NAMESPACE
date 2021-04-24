@@ -2,4 +2,5 @@
 
 export(chrome_print)
 export(simple)
+export(simple_landscape)
 importFrom(pagedown,chrome_print)

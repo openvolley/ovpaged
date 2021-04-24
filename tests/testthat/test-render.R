@@ -7,3 +7,5 @@ expect_knit <- function(template) {
     unlink(outd, recursive = TRUE)
 }
 test_that("simple template works", expect_knit("simple"))
+
+test_that("simple_landscape template works", expect_knit("simple_landscape"))

@@ -43,6 +43,15 @@ output:
 ---
 ```
 
+``` r
+---
+title: "Title of the report"
+output:
+    ovpaged::simple_landscape:
+      toc: false
+---
+```
+
 Additional, optional YAML options:
 
 ``` r

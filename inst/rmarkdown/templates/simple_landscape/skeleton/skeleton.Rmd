@@ -1,0 +1,14 @@
+---
+title: "Title of the report"
+subtitle: "Subtitle of the report"
+author: "Author Name"
+date: "Date"
+output:
+    ovpaged::simple_landscape:
+      toc: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+

@@ -2,9 +2,12 @@
 % Please edit documentation in R/report_simple.R
 \name{simple}
 \alias{simple}
+\alias{simple_landscape}
 \title{Simple paged report template}
 \usage{
 simple(css = NULL, ...)
+
+simple_landscape(css = NULL, ...)
 }
 \arguments{
 \item{css}{string: additional css}
