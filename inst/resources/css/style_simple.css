@@ -1,0 +1,242 @@
+/* css vars */
+:root {
+    --background: white;
+    --pagedjs-width: 210mm;
+    --pagedjs-height: 297mm;
+    --pagedjs-margin-left: 10mm;
+    --pagedjs-margin-right: 10mm;
+    --pagedjs-margin-bottom: 10mm;
+    --color-paper: white;
+    --color-mbox: rgba(0, 0, 0, 0.2);
+    --running-title-width: 2.5in;
+    --screen-pages-spacing: 5mm;
+    --main-font: "Lato";
+    --header-font: "Roboto";
+    --base-font-size: 11pt;
+  }
+
+/* two pages in a row if possible on screen */
+@media screen {
+  body {
+      background-color: var(--background);
+      margin: var(--screen-pages-spacing) auto 0 auto;
+  }
+  .pagedjs_pages {
+      display: flex;
+      max-width: calc(var(--pagedjs-width) * 2);
+      flex: 0;
+      flex-wrap: wrap;
+      margin: 0 auto;
+  }
+  .pagedjs_page {
+      background-color: var(--color-paper);
+      box-shadow: 0 0 0 1px var(--color-mbox);
+      flex-shrink: 0;
+      flex-grow: 0;
+      margin: auto auto var(--screen-pages-spacing) auto;
+  }
+}
+
+/* when a row can hold two pages, start first page on the right */
+@media screen and (min-width: 12.32in) {
+  .pagedjs_page {
+      margin: auto 0 var(--screen-pages-spacing) 0;
+  }
+  .pagedjs_first_page {
+      margin-left: var(--pagedjs-width);
+  }
+}
+
+/* page size */
+@page {
+    size: 210mm 297mm; /* var(--pagedjs-width) doesn't work in browser when printing */
+}
+
+
+/* string variables */
+h1.title {
+  string-set: h1-title content(text);
+}
+
+.shorttitle1 {
+  string-set: h1-text content(text);
+}
+
+/* normal page */
+@page {
+
+}
+
+@page:left {
+
+    @top-center {
+      content: element(runningH);
+      background-size: contain;
+      background-repeat: no-repeat;
+      /* full page width */
+      margin-left: calc(var(--pagedjs-margin-left) * -1);
+      margin-right: calc(var(--pagedjs-margin-right) * -1);
+    }
+
+/*    @bottom-left {*/ /* put page numbers as for right-page */
+    @bottom-right {
+      content: counter(page);
+      font-size: calc(var(--base-font-size) * 10/11);
+    }
+
+/*    @top-right {
+      content: element(runningHE);
+      font-size: calc(var(--base-font-size) * 10/11);
+      margin-left: -1in;
+    }*/
+
+    /*@bottom-right {*/
+    @bottom-left {
+      content: "";
+    }
+
+    @bottom-center {
+      content: "";
+    }
+}
+
+/* right page */
+@page:right {
+
+    @top-center {
+      content: element(runningH);
+      background-size: contain;
+      background-repeat: no-repeat;
+      /* full page width */
+      margin-left: calc(var(--pagedjs-margin-left) * -1);
+      margin-right: calc(var(--pagedjs-margin-right) * -1);
+    }
+
+    @bottom-right {
+      content: counter(page);
+      font-size: calc(var(--base-font-size) * 10/11);
+    }
+
+    @bottom-left {
+      content: "";
+    }
+
+    @bottom-center {
+      content: "";
+    }
+}
+
+
+/*
+@page:first{
+}
+*/
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+body {
+    font-family: var(--main-font);
+    font-size: var(--base-font-size);
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--header-font);
+}
+
+h1.title {
+  font-size: calc(var(--base-font-size) * 15/11);
+  font-weight: bold;
+}
+
+h2.title {
+  font-size: calc(var(--base-font-size) * 15/11);
+  font-weight: bold;
+}
+
+h2.subtitle {
+  font-size: calc(var(--base-font-size) * 14/11);
+  font-weight: bold;
+}
+
+h3.author {
+  font-size: calc(var(--base-font-size) * 13/11);
+  font-weight: bold;
+}
+
+h3.date {
+  font-size: calc(var(--base-font-size) * 13/11);
+  font-weight: bold;
+}
+
+h1 {
+  font-size: calc(var(--base-font-size) * 15/11);
+}
+
+h2 {
+  font-size: calc(var(--base-font-size) * 15/11);
+}
+
+h3 {
+  font-size: calc(var(--base-font-size) * 13/11);
+}
+
+/* page breaks */
+.level1 {
+    break-before: page;
+}
+
+.section > h1, .section > h2, .section > h3, .section > h4, .section > h5, .section > h6 {
+    break-after: avoid;
+}
+.footnotes {
+    break-before: always;
+    break-after: always;
+}
+.figure {
+    break-inside: avoid;
+}
+
+.sectionblock {
+    break-inside: avoid;
+}
+
+caption {
+    break-inside: avoid;
+    break-after: avoid;
+}
+
+.subtitle span {
+  font-size: calc(var(--base-font-size) * 0.9);
+}
+img {
+    max-width: 100%;
+}
+
+/* tables */
+tr:nth-child(odd) { background: #eee; }
+th { background: var(--color-paper); padding: 3px; }
+thead tr { border-top: 1px solid black; border-bottom: 1px solid black; }
+td { padding: 3px; }
+
+table {
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+.headerstuff {
+    position: running(runningH);
+}
+.headertitle {
+    font-size: calc(var(--base-font-size) * 15/11);
+    font-weight: bold;
+}
+.headerextra {
+    margin-right: 5mm;
+    float: right;
+}
+
+.tablecontinued {
+    font-size: calc(var(--base-font-size) * 9/11);
+    font-style: italic;
+}
