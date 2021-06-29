@@ -34,7 +34,7 @@ remotes::install_github("openvolley/ovpaged")
 
 Minimal YAML options:
 
-``` r
+``` yml
 ---
 title: "Title of the report"
 output:
@@ -43,7 +43,7 @@ output:
 ---
 ```
 
-``` r
+``` yml
 ---
 title: "Title of the report"
 output:
@@ -54,7 +54,7 @@ output:
 
 Additional, optional YAML options:
 
-``` r
+``` yml
 subtitle: "Subtitle of the report"
 author: "Author Name"
 date: "`r Sys.Date()`"

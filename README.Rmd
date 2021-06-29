@@ -40,7 +40,7 @@ remotes::install_github("openvolley/ovpaged")
 
 Minimal YAML options:
 
-```{r eval = FALSE}
+```yml
 ---
 title: "Title of the report"
 output:
@@ -50,7 +50,7 @@ output:
 
 ```
 
-```{r eval = FALSE}
+```yml
 ---
 title: "Title of the report"
 output:
@@ -62,15 +62,15 @@ output:
 
 Additional, optional YAML options:
 
-```{r eval = FALSE}
+```yml
 subtitle: "Subtitle of the report"
 author: "Author Name"
-date: "`r Sys.Date()`"
+date: "`r knitr::inline_expr("Sys.Date()")`"
 google-font: true
 main-font: EB Garamond
 header-font: Architects Daughter
 base-font-size: 18pt
-header-image: "`r base64enc::base64encode(my_image_file)`"
+header-image: "`r knitr::inline_expr("base64enc::base64encode(my_image_file)")`"
 header-background-colour: red
 header-title: Title for the header block
 
