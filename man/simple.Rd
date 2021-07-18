@@ -5,12 +5,14 @@
 \alias{simple_landscape}
 \title{Simple paged report template}
 \usage{
-simple(css = NULL, ...)
+simple(css = NULL, autolink_bare_uris = FALSE, ...)
 
-simple_landscape(css = NULL, ...)
+simple_landscape(css = NULL, autolink_bare_uris = FALSE, ...)
 }
 \arguments{
 \item{css}{string: additional css}
+
+\item{autolink_bare_uris}{logical: if \code{TRUE}, convert absolute URIs into links, even when not surrounded by pointy braces \verb{<...>}. It is set to \code{FALSE} by default here so that the \code{header-image} parameter in the document YAML is not converted. This is equivalent to specifying \code{md_extensions: -autolink_bare_uris} in the document YAML directly}
 
 \item{...}{: passed to \code{\link[pagedown:html_paged]{pagedown::html_paged()}}}
 }
