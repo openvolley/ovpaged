@@ -29,12 +29,16 @@ Features:
 
 ## Installation
 
-Install from [GitHub](https://github.com/) with:
+```{r eval=FALSE}
 
-``` r
-## install.packages("remotes")
+install.packages("ovpaged", repos = "https://openvolley.r-universe.dev")
+
+## or
+
+## install.packages("remotes") ## if needed
 remotes::install_github("openvolley/ovpaged")
 ```
+
 
 ## Usage
 
@@ -70,7 +74,7 @@ google-font: true
 main-font: EB Garamond
 header-font: Architects Daughter
 base-font-size: 18pt
-header-image: "`r knitr::inline_expr("base64enc::base64encode(my_image_file)")`"
+header-image: "`r knitr::inline_expr("knitr::image_uri(my_image_file)")`"
 header-background-colour: red
 header-title: Title for the header block
 
