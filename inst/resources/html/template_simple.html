@@ -204,6 +204,12 @@ class RepeatingTableHeaders extends Paged.Handler {
 Paged.registerHandlers(RepeatingTableHeaders);
 </script>
 
+$if(no-page-numbers)$
+<style type="text/css">
+  .pagedjs_margin-bottom-right { color: var(--background); } /* hack to hide page numbers */
+</style>
+$endif$
+
 </head>
 
 <body>
@@ -330,18 +336,18 @@ $endif$
 $endif$
 
 <div class="headerstuff">
-  $if(header-title)$
-  <span class="headertitle">$header-title$</span>
-  $endif$
   $if(header-extra)$
   <span class="headerextra">$header-extra$</span>
+  $endif$
+  $if(header-title)$
+  <span class="headertitle">$header-title$</span>
   $endif$
 </div>
 
 <style type="text/css">
   .pagedjs_margin-top-center {
       $if(header-image)$
-      background-image: url(data:image/png;base64,$header-image$);
+      background-image: url($header-image$);
       $endif$
       $if(header-background-colour)$
       background-color: $header-background-colour$;
