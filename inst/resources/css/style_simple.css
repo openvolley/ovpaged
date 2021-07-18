@@ -228,6 +228,8 @@ table {
 .headerextra {
     margin-right: 5mm;
     float: right;
+    clear: none;
+    margin-top: 15mm;
 }
 
 .tablecontinued {
