@@ -1,11 +1,12 @@
 /* css vars */
 :root {
     --background: white;
-    --pagedjs-width: 297mm;
-    --pagedjs-height: 210mm;
+    --pagedjs-width: 210mm;
+    --pagedjs-height: 297mm;
     --pagedjs-margin-left: 10mm;
     --pagedjs-margin-right: 10mm;
     --pagedjs-margin-bottom: 10mm;
+    --pagedjs-margin-top: 10mm;
     --color-paper: white;
     --color-mbox: rgba(0, 0, 0, 0.2);
     --running-title-width: 2.5in;
@@ -23,7 +24,7 @@
   }
   .pagedjs_pages {
       display: flex;
-      max-width: var(--pagedjs-width);
+      max-width: calc(var(--pagedjs-width) * 2);
       flex: 0;
       flex-wrap: wrap;
       margin: 0 auto;
@@ -37,8 +38,18 @@
   }
 }
 
+/* when a row can hold two pages, start first page on the right */
+@media screen and (min-width: 12.32in) {
+  .pagedjs_page {
+      margin: auto 0 var(--screen-pages-spacing) 0;
+  }
+  .pagedjs_first_page {
+      margin-left: var(--pagedjs-width);
+  }
+}
+
 @page {
-    size: A4 landscape;
+    size: A4;
 }
 
 
@@ -50,71 +61,6 @@ h1.title {
 .shorttitle1 {
   string-set: h1-text content(text);
 }
-
-@page:left {
-
-    @top-center {
-      content: element(runningH);
-      background-size: contain;
-      background-repeat: no-repeat;
-      /* full page width */
-      margin-left: calc(var(--pagedjs-margin-left) * -1);
-      margin-right: calc(var(--pagedjs-margin-right) * -1);
-    }
-
-/*    @bottom-left {*/ /* put page numbers as for right-page */
-    @bottom-right {
-      content: counter(page);
-      font-size: calc(var(--base-font-size) * 10/11);
-    }
-
-/*    @top-right {
-      content: element(runningHE);
-      font-size: calc(var(--base-font-size) * 10/11);
-      margin-left: -1in;
-    }*/
-
-    /*@bottom-right {*/
-    @bottom-left {
-      content: "";
-    }
-
-    @bottom-center {
-      content: "";
-    }
-}
-
-/* right page */
-@page:right {
-
-    @top-center {
-      content: element(runningH);
-      background-size: contain;
-      background-repeat: no-repeat;
-      /* full page width */
-      margin-left: calc(var(--pagedjs-margin-left) * -1);
-      margin-right: calc(var(--pagedjs-margin-right) * -1);
-    }
-
-    @bottom-right {
-      content: counter(page);
-      font-size: calc(var(--base-font-size) * 10/11);
-    }
-
-    @bottom-left {
-      content: "";
-    }
-
-    @bottom-center {
-      content: "";
-    }
-}
-
-
-/*
-@page:first{
-}
-*/
 
 body {
     font-family: var(--main-font);
@@ -202,20 +148,6 @@ td { padding: 3px; }
 table {
     border-spacing: 0px;
     border-collapse: collapse;
-}
-
-.headerstuff {
-    position: running(runningH);
-}
-.headertitle {
-    font-size: calc(var(--base-font-size) * 15/11);
-    font-weight: bold;
-}
-.headerextra {
-    margin-right: 5mm;
-    float: right;
-    clear: none;
-    margin-top: 15mm;
 }
 
 .tablecontinued {

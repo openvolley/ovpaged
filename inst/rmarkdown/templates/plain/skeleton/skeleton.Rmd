@@ -4,9 +4,8 @@ subtitle: "Subtitle of the report"
 author: "Author Name"
 date: "Date"
 output:
-    ovpaged::simple:
+    ovpaged::plain:
       toc: false
-      orientation: landscape
 ---
 
 ```{r setup, include=FALSE}

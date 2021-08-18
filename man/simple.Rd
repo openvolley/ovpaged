@@ -2,17 +2,39 @@
 % Please edit documentation in R/report_simple.R
 \name{simple}
 \alias{simple}
-\alias{simple_landscape}
+\alias{plain}
 \title{Simple paged report template}
 \usage{
-simple(css = NULL, autolink_bare_uris = FALSE, ...)
+simple(
+  css = NULL,
+  orientation = "portrait",
+  autolink_bare_uris = FALSE,
+  striped = TRUE,
+  auto_table_breaks = TRUE,
+  hide_page_numbers = FALSE,
+  ...
+)
 
-simple_landscape(css = NULL, autolink_bare_uris = FALSE, ...)
+plain(
+  css = NULL,
+  autolink_bare_uris = FALSE,
+  striped = TRUE,
+  auto_table_breaks = TRUE,
+  ...
+)
 }
 \arguments{
 \item{css}{string: additional css}
 
+\item{orientation}{string: "portrait" or "landscape" (experimental)}
+
 \item{autolink_bare_uris}{logical: if \code{TRUE}, convert absolute URIs into links, even when not surrounded by pointy braces \verb{<...>}. It is set to \code{FALSE} by default here so that the \code{header-image} parameter in the document YAML is not converted. This is equivalent to specifying \code{md_extensions: -autolink_bare_uris} in the document YAML directly}
+
+\item{striped}{logical: if \code{TRUE}, include css that makes table rows striped}
+
+\item{auto_table_breaks}{logical: if \code{TRUE}, automatically break tables across pages}
+
+\item{hide_page_numbers}{logical: if \code{TRUE}, hide page numbers}
 
 \item{...}{: passed to \code{\link[pagedown:html_paged]{pagedown::html_paged()}}}
 }

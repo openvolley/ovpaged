@@ -129,6 +129,7 @@ img {
 </style>
 $endif$
 
+$if(auto-table-breaks)$
 <script>
 // Repeat table headers
 // from https://gitlab.pagedmedia.org/tools/pagedjs/issues/84
@@ -203,6 +204,7 @@ class RepeatingTableHeaders extends Paged.Handler {
 
 Paged.registerHandlers(RepeatingTableHeaders);
 </script>
+$endif$
 
 $if(no-page-numbers)$
 <style type="text/css">
