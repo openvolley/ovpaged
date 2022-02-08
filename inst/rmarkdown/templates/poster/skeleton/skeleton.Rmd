@@ -1,0 +1,10 @@
+---
+title: "Title of the report"
+output:
+    ovpaged::poster
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
