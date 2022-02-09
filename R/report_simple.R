@@ -50,3 +50,24 @@ plain <- function(css = NULL, autolink_bare_uris = FALSE, striped = TRUE, auto_t
 }
 
 # * "bootstrap_grid" - include the css necessary for bootstrap grid layout, which means that you can use e.g. [shiny::fluidRow()] and [shiny::column()]. This does not include the bootstrap css styling, just the layout (css taken from <https://github.com/dmhendricks/bootstrap-grid-css> under the Bootstrap MIT license)
+
+#' Posterdown HTML format (using pagedown::poster_relaxed)
+#'
+#' @inheritParams pagedown::poster_relaxed
+#' @param ... Additional arguments to `rmarkdown::html_document`
+#'
+#' @return R Markdown output format to pass to
+#'   [rmarkdown::render()]
+#'
+#'@examples
+#'\donttest{
+#'file <- file.path(tempdir(),"foo.rmd")
+#'rmarkdown::draft(file, template="poster", package="ovpaged")
+#'}
+#'
+#' @export
+poster <- function(...,
+                   template =pkg_resource("html", "template_poster.html"),
+                   css = NULL) {
+    pagedown::poster_relaxed(..., css = css, template = template)
+}

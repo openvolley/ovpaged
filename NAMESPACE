@@ -2,5 +2,6 @@
 
 export(chrome_print)
 export(plain)
+export(poster)
 export(simple)
 importFrom(pagedown,chrome_print)
