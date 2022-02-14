@@ -24,7 +24,9 @@ Features:
 ## Installation
 
 ``` r
-install.packages("ovpaged", repos = "https://openvolley.r-universe.dev")
+options(repos = c(openvolley = "https://openvolley.r-universe.dev",
+                  CRAN = "https://cloud.r-project.org"))
+install.packages("ovpaged")
 
 ## or
 
@@ -34,7 +36,7 @@ remotes::install_github("openvolley/ovpaged")
 
 ## Usage
 
-Minimal YAML options:
+YAML options:
 
 ``` yml
 ---
@@ -42,19 +44,12 @@ title: "Title of the report"
 output:
     ovpaged::simple:
       toc: false
+      auto_table_breaks: true
+      striped: true
 ---
 ```
 
-``` yml
----
-title: "Title of the report"
-output:
-    ovpaged::simple_landscape:
-      toc: false
----
-```
-
-Additional, optional YAML options:
+Additional YAML options:
 
 ``` yml
 subtitle: "Subtitle of the report"
