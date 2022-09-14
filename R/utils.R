@@ -1,1 +1,1 @@
-pkg_resource <- function(...) system.file("resources", ..., package = "ovpaged", mustWork = TRUE)
+pkg_resource <- function(...) normalizePath(system.file("resources", ..., package = "ovpaged", mustWork = TRUE), mustWork = TRUE)
