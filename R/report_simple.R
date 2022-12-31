@@ -53,21 +53,20 @@ plain <- function(css = NULL, autolink_bare_uris = FALSE, striped = TRUE, auto_t
 
 #' Posterdown HTML format (using pagedown::poster_relaxed)
 #'
-#' @inheritParams pagedown::poster_relaxed
-#' @param ... Additional arguments to `rmarkdown::html_document`
+#' @param ... Additional arguments to [pagedown::poster_relaxed()]
+#' @param template string: as for [pagedown::html_paged()]
+#' @param css string: additional css
 #'
 #' @return R Markdown output format to pass to
 #'   [rmarkdown::render()]
 #'
-#'@examples
-#'\donttest{
-#'file <- file.path(tempdir(),"foo.rmd")
-#'rmarkdown::draft(file, template="poster", package="ovpaged")
-#'}
+#' @examples
+#'  \donttest{
+#'  myfile <- file.path(tempdir(), "foo.rmd")
+#'  rmarkdown::draft(myfile, template = "poster", package = "ovpaged")
+#' }
 #'
 #' @export
-poster <- function(...,
-                   template =pkg_resource("html", "template_poster.html"),
-                   css = NULL) {
+poster <- function(..., template = pkg_resource("html", "template_poster.html"), css = NULL) {
     pagedown::poster_relaxed(..., css = css, template = template)
 }

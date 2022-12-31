@@ -1,6 +1,6 @@
 Package: ovpaged
 Title: Openvolley Pagedown Templates
-Version: 0.0.6
+Version: 0.1.0
 Authors@R: c(person(given = "Ben", family = "Raymond", role = c("aut", "cre"), email = "ben@untan.gl"),
              person(given = "Adrien", family = "Ickowicz", role = "aut"),
              person("openvolley.org", role = "org"))
@@ -10,7 +10,7 @@ Imports: pagedown
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.1
 Suggests:
     covr,
     knitr,

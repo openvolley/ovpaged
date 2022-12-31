@@ -11,11 +11,11 @@ poster(
 )
 }
 \arguments{
-\item{...}{Additional arguments to \code{rmarkdown::html_document}}
+\item{...}{Additional arguments to \code{\link[pagedown:poster_relaxed]{pagedown::poster_relaxed()}}}
 
-\item{template}{See \code{\link[pagedown]{html_paged}()}.}
+\item{template}{string: as for \code{\link[pagedown:html_paged]{pagedown::html_paged()}}}
 
-\item{css}{See \code{\link[pagedown]{html_paged}()}.}
+\item{css}{string: additional css}
 }
 \value{
 R Markdown output format to pass to
@@ -25,9 +25,9 @@ R Markdown output format to pass to
 Posterdown HTML format (using pagedown::poster_relaxed)
 }
 \examples{
-\donttest{
-file <- file.path(tempdir(),"foo.rmd")
-rmarkdown::draft(file, template="poster", package="ovpaged")
+ \donttest{
+ myfile <- file.path(tempdir(), "foo.rmd")
+ rmarkdown::draft(myfile, template = "poster", package = "ovpaged")
 }
 
 }
