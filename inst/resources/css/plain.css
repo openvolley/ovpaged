@@ -113,6 +113,10 @@ h3 {
     break-before: page;
 }
 
+.nobreakbefore {
+    break-before: avoid;
+}
+
 .section > h1, .section > h2, .section > h3, .section > h4, .section > h5, .section > h6 {
     break-after: avoid;
 }
