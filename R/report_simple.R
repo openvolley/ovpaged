@@ -61,8 +61,8 @@ plain <- function(css = NULL, autolink_bare_uris = FALSE, striped = TRUE, auto_t
 #'   [rmarkdown::render()]
 #'
 #' @examples
-#'  \donttest{
-#'  myfile <- file.path(tempdir(), "foo.rmd")
+#' \dontrun{
+#'  myfile <- tempfile(fileext = ".Rmd")
 #'  rmarkdown::draft(myfile, template = "poster", package = "ovpaged")
 #' }
 #'

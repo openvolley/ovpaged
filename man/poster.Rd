@@ -25,8 +25,8 @@ R Markdown output format to pass to
 Posterdown HTML format (using pagedown::poster_relaxed)
 }
 \examples{
- \donttest{
- myfile <- file.path(tempdir(), "foo.rmd")
+\dontrun{
+ myfile <- tempfile(fileext = ".Rmd")
  rmarkdown::draft(myfile, template = "poster", package = "ovpaged")
 }
 
